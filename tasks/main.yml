@@ -1,0 +1,16 @@
+---
+# tasks file for mdarke.php7
+- name: Add the PHP07 repository
+  apt_repository: repo="{{ php_enablerepo }}"
+
+- name: install php7.0
+  apt: pkg=php7.0 state=present
+
+- name: install php7.0-fpm
+  apt: pkg=php7.0-fpm state=present
+
+- name: install php7.0-mysql
+  apt: pkg=php7.0-mysql state=present
+
+#- name: install php-xdebug
+#  apt: pkg=php-xdebug state=present

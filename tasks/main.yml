@@ -11,7 +11,7 @@
 
 - name: Add the PHP repository
   apt_repository: repo="{{ php_enablerepo }}"
-  when: php_enablerepo is defined
+  when: php_enablerepo|default("") != "" 
 
 - name: install php packages
   apt: pkg={{ item }} state=present

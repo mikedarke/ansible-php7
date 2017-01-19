@@ -1,6 +1,14 @@
 ---
 # tasks file for mdarke.php7
 
+- debug:
+    msg: "Adding the repos {{ php_enablerepo }} for PHP packages"
+  when: php_enablerepo is defined
+
+- debug:
+    msg: "No custom PHP package repository defined"
+  when: php_enablerepo is undefined
+
 - name: Add the PHP repository
   apt_repository: repo="{{ php_enablerepo }}"
   when: php_enablerepo is defined
@@ -8,6 +16,3 @@
 - name: install php packages
   apt: pkg={{ item }} state=present
   with_items: "{{ php_packages }}"
-
-#- name: install php-xdebug
-#  apt: pkg=php-xdebug state=present

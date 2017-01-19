@@ -1,3 +1,10 @@
 ---
 # defaults file for mdarke.php7
-php_enablerepo: ppa:ondrej/php
+#php_enablerepo: ppa:ondrej/php
+
+php_packages:
+    - php
+    - php-mysql
+    - php-fpm
+    - php-curl
+    - php-gd
